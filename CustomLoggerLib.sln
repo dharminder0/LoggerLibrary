@@ -3,9 +3,14 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.4.33110.190
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CustomLoggerLib", "CustomLoggerLib\CustomLoggerLib.csproj", "{6DE03F71-2057-4EEE-AA68-34E6B61310C8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CustomLoggerLib", "CustomLoggerLib\CustomLoggerLib.csproj", "{6DE03F71-2057-4EEE-AA68-34E6B61310C8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LoggerConsole", "LoggerConsole\LoggerConsole.csproj", "{9427E963-1DB5-495E-AA8D-87D8D881D78F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LoggerConsole", "LoggerConsole\LoggerConsole.csproj", "{9427E963-1DB5-495E-AA8D-87D8D881D78F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{00DAEA90-C2FC-4591-8333-ED465DBF0597}"
+	ProjectSection(SolutionItems) = preProject
+		Help.txt = Help.txt
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
