@@ -1,0 +1,31 @@
+*****************************************************
+**Logger Configuration
+ Configuration Setup: 
+    1.Allow setting up sinks with their respective levels and other necessary parameters.
+    2.Support multiple configurations if required by the application.
+
+*****************************************************
+**Console Application Configuration SampleCode:
+    LoggerConfiguration config = new LoggerConfiguration();
+    config.Configure(LogLevel.ERROR, new FileSink("logfile.txt"));
+    config.Configure(LogLevel.INFO, new ConsoleSink());
+
+*****************************************************
+**Singleton Configuration (mostly used by web api)
+      var serviceProvider = new ServiceCollection()
+                .AddSingleton<ILoggerService, LoggerService>(serviceProvider => {
+                    var loggerConfiguration = new LoggerConfiguration();
+                    loggerConfiguration.Configure(LogLevelEnum.ERROR, new FileSinkService("logfile.txt"));
+                    loggerConfiguration.Configure(LogLevelEnum.INFO, new ConsoleSinkService());
+
+                    return loggerConfiguration.Logger;
+                })
+      .BuildServiceProvider();
+
+****************************************************
+**Use the logger in an application
+  var logger = serviceProvider.GetService<ILoggerService>();
+logger.Log(new LogMessageModel(LogLevelEnum.INFO, "LoggerConsole info message", "LoggerConsole"));
+logger.Log(new LogMessageModel(LogLevelEnum.ERROR, "LoggerConsole error message", "LoggerConsole"));
+
+********************************************************

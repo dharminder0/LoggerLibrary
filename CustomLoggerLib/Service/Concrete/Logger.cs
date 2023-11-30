@@ -4,6 +4,9 @@ using System.Collections.Concurrent;
 
 namespace CustomLoggerLib.Service.Concrete
 {
+    /// <summary>
+    /// Represents a logger that can log messages with different levels.
+    /// </summary>
     public class LoggerService : ILoggerService
     {
         private ConcurrentDictionary<LogLevelEnum, List<ILogSinkService>> _sinks = new ConcurrentDictionary<LogLevelEnum, List<ILogSinkService>>();
@@ -18,6 +21,10 @@ namespace CustomLoggerLib.Service.Concrete
                            });
         }
 
+        /// <summary>
+        /// Logs a message with a specific log level.
+        /// </summary>
+        /// <param name="message"></param>
         public void Log(LogMessageModel message)
         {
             if (_sinks.TryGetValue(message.Level, out var sinks))
